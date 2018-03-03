@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ClientServiceService} from "../service/client-service.service";
+import {Doctor} from "../@types/aceso";
+import {DoctorServiceService} from "../service/doctor-service.service";
 
 @Component({
   selector: 'app-firebase',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirebaseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private doctor$$: DoctorServiceService) { }
 
   ngOnInit() {
+    const doctor: Doctor = {
+      houseHoldList: ['abx'],
+      name: 'Mai',
+      profession: 'Doctor',
+      gender: 'Female'
+    };
+    this.doctor$$.pushDoctor(doctor);
   }
 
 }
