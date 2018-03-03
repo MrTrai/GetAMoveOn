@@ -19,6 +19,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ClientSideComponent } from './client-side/client-side.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { ClientSideComponent } from './client-side/client-side.component';
   ],
   imports: [
     BrowserModule,
+     FormsModule,
+     BrowserAnimationsModule,
     NgMaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
