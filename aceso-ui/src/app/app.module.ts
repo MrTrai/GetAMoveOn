@@ -16,6 +16,7 @@ import {DoctorServiceService} from "./service/doctor-service.service";
 import {FirebaseApiService} from "./service/firebase-api.service";
 import {AppServiceService} from "./service/app-service.service";
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     UserComponent,
     DoctorComponent,
     LoginComponent,
-    ChartCardComponent
+    ChartCardComponent,
+    DashboardLayoutComponent
   ],
   imports: [
     BrowserModule,
