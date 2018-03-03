@@ -7,7 +7,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 })
 export class DashboardLayoutComponent implements OnInit {
   @ViewChild('drawer') sideNav;
-  sideNavMode: string;
   constructor() { }
 
   ngOnInit() {
