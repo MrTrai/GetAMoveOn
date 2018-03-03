@@ -17,14 +17,11 @@ import {FirebaseApiService} from "./service/firebase-api.service";
 import {AppServiceService} from "./service/app-service.service";
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
-<<<<<<< HEAD
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ClientSideComponent } from './client-side/client-side.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-=======
 import {AppRoutingModule} from "./app-routing.module";
->>>>>>> 9e33c1c3f8ab351bbc93121c68636be06204d556
 
 @NgModule({
   declarations: [

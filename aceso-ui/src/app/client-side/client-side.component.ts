@@ -10,7 +10,7 @@ export class ClientSideComponent implements OnInit {
   foods = [
     {value: 'steak-0', viewValue: 'Weight Measure'},
     {value: 'pizza-1', viewValue: 'Blood Pressure'},
-    {value: 'tacos-2', viewValue: 'Thermometer'};
+    {value: 'tacos-2', viewValue: 'Thermometer'}
   ];
 
   ngOnInit() {

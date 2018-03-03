@@ -5,6 +5,8 @@
 	margin: 0;
 	vertical-align: middle;
 	background-image: "https://static.pexels.com/photos/206359/pexels-photo-206359.jpeg";
-	
+}
 
+.content {
+	text-align: center;
 }
