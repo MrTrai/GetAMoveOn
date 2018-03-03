@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientServiceService} from "../service/client-service.service";
-import {Doctor} from "../@types/aceso";
+import {Doctor, HouseHold} from "../@types/aceso";
 import {DoctorServiceService} from "../service/doctor-service.service";
 
 @Component({
@@ -34,6 +34,14 @@ export class FirebaseComponent implements OnInit {
       profession: 'Doctor',
       gender: 'BEDE'
     };
+    const household1: HouseHold = {
+      membersList: ['abx','ab'],
+      name: 'BEDE',
+      email: 'BEDE@yahoo.com',
+      profession: 'Doctor',
+      gender: 'BEDE'
+    };
+
     // this.doctor$$.pushDoctor(doctor1);
     // this.doctor$$.pushDoctor(doctor2);
     // this.doctor$$.pushDoctor(doctor3);
