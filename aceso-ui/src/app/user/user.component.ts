@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientServiceService} from "../service/client-service.service";
+import {HighChartUtilService} from "../service/high-chart-util.service";
 
 @Component({
   selector: 'app-user',
@@ -7,19 +8,26 @@ import {ClientServiceService} from "../service/client-service.service";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  heartRateOption: any;
+  weightOption: any;
+  tempOption: any;
 
-  constructor(private client$$: ClientServiceService) { }
+  constructor(private client$$: ClientServiceService,
+              private chartUtil$$: HighChartUtilService) { }
 
   ngOnInit() {
-    this.client$$.getName().subscribe((snapShots: any[]) => {
-      console.log('handsome: ');
-      console.log(snapShots);
-
-      snapShots.forEach((snap, indx) => {
-        console.log(snap.key);
-        console.log(snap.payload.val());
-      })
-    });
+    this.heartRateOption = this.chartUtil$$.getLineChartConfig()
+      .setChartOptionTitle('Heart Rate')
+      .setLegendOption({})
+      .getNewOption();
+    this.weightOption = this.chartUtil$$.getLineChartConfig()
+      .setChartOptionTitle('Weight')
+      .setLegendOption({})
+      .getNewOption();
+    this.tempOption = this.chartUtil$$.getLineChartConfig()
+      .setChartOptionTitle('Body Temperature')
+      .setLegendOption({})
+      .getNewOption();
   }
 
 }
