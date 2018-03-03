@@ -7,18 +7,24 @@ export class DoctorServiceService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getHouseholdList(){
+  getHouseholdIDList(){
     return this.db.list('houseHoldIDList').snapshotChanges();
   }
 
-  retrieveDoctor(doctor: Doctor) {
-    // Retrieve Doctor from Firebase
-    this.db.list('doctors').snapshotChanges();
-  }
-
-  pushDoctor(doctors: Doctor) {
+  pushDoctor(doctors: ) {
     // Insert Doctor to firebase
-    this.db.list('doctors').push(doctors);
+    this.db.list('doctors').push(doctors).then((data) => {
+      //set key
+      this.db.list('doctors', (ref) => {
+        return ref.orderByChild('name').equalTo(doctors.name);
+      }).snapshotChanges().subscribe((userSnapShots: any[]) => {
+        userSnapShots.forEach((doctors, indx) => {
+          if (!doctors.payload.val().doctorID) {
+            this.db.list('doctors').update(doctors.key, {doctorID: doctors.key});
+          }
+        });
+      });
+    });
   }
 
   updateDoctor(doctor: Doctor, newDoctor: Doctor) {

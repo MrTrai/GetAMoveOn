@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientServiceService} from "../service/client-service.service";
-import {Doctor, User} from "../@types/aceso";
+import {Doctor, HouseHold, User, UserData, UserProfile} from "../@types/aceso";
 import {DoctorServiceService} from "../service/doctor-service.service";
+import {HouseholdService} from "../service/household.service";
 
 @Component({
   selector: 'app-firebase',
@@ -10,71 +11,111 @@ import {DoctorServiceService} from "../service/doctor-service.service";
 })
 export class FirebaseComponent implements OnInit {
 
-  constructor(private doctors$$: DoctorServiceService, private user$$: ClientServiceService) { }
+  constructor(private doctors$$: DoctorServiceService, private user$$: ClientServiceService,
+              private household$$: HouseholdService) { }
 
   ngOnInit() {
+
     const doctor1: Doctor = {
-      houseHoldIDList: ['abx'],
-      name: 'Mai',
-      email: 'Mai@yahoo.com',
+      doctorID : '',
+      houseHoldIDList: ['a','b','c'],
+      name: 'Dr. Hoff',
+      email: 'Hoff@yahoo.com',
       profession: 'Doctor',
       gender: 'Female'
     };
-    const doctor2: Doctor = {
-      houseHoldIDList: ['abx'],
-      name: 'An',
-      email: 'An@yahoo.com',
-      profession: 'Doctor',
-      gender: 'Male'
-    };
-    const doctor3: Doctor = {
-      houseHoldIDList: ['abx'],
-      name: 'BEDE',
-      email: 'BEDE@yahoo.com',
-      profession: 'Doctor',
-      gender: 'BEDE'
-    };
-    const user1: User = {
-      userID: '',
-      name: 'a',
-      email:'a@gmail.com'
-    };
-    const user2: User = {
-      userID: '',
-      name: 'b',
-      email:'b@gmail.com'
-    };
-    const user3: User = {
-      userID: '',
-      name: 'c',
-      email:'c@gmail.com'
-    };
-    // console.log(this.user$$.getUser(user1).subscribe((snaps: any[]) => {
-    //   let userVal;
-    //   let userKey;
-    //   snaps.forEach((snap, indx) => {
-    //     userVal = snap.payload.val();
-    //     userKey = snap.key;
-    //     if (userVal.email == user2.email) {
-    //       console.log('True');
-    //     }
-    //   })
-    // }));
-    // this.doctor$$.pushDoctor(doctor1);
-    // this.doctor$$.pushDoctor(doctor2);
-    // this.doctor$$.pushDoctor(doctor3);
-    // this.doctor$$.removeDoctor(doctor1);
-    // this.doctor$$.updateDoctor(doctor3,doctor1);
 
-    const user4: User = {
+
+    const household1 : HouseHold = {
+      householdID: '',
+      membersList: ['a','b','c'],
+        headOfHousehold: 'An Tran',
+        doctorID: 'drID'
+    }
+    const household2 : HouseHold = {
+      householdID: '',
+      membersList: ['a','b','c'],
+      headOfHousehold: 'Trai Tran',
+      doctorID: 'drID'
+    }
+    const household3 : HouseHold = {
+      householdID: '',
+      membersList: ['a','b','c'],
+      headOfHousehold: 'Mai Pham',
+      doctorID: 'drID'
+    }
+    const user1 : User = {
       userID: '',
-      name: 'd',
-      email:'d@gmail.com'
-    };
-    this.user$$.pushUser(user1);
-    this.user$$.pushUser(user2);
-    this.user$$.pushUser(user3);
-    this.user$$.pushUser(user4);
+      householdID: 'householdId',
+      personalDoctorID: "drID",
+      name: "Taian",
+      isHeadOfHouseHold: true,
+      email: "at@gmail.com"
+    }
+    const user2 : User = {
+      userID: '',
+      householdID: 'householdId',
+      personalDoctorID: "drID",
+      name: "TKIe",
+      isHeadOfHouseHold: true,
+      email: "ttran@gmail.com"
+    }
+    const user3 : User = {
+      userID: '',
+      householdID: 'householdId',
+      personalDoctorID: "drID",
+      name: "TuanB",
+      isHeadOfHouseHold: true,
+      email: "at@gmail.com"
+    }
+    const user4 : User = {
+      userID: '',
+      householdID: 'householdId',
+      personalDoctorID: "drID",
+      name: "Pham",
+      email: "at@gmail.com"
+    }
+    const user5 : User = {
+      userID: '',
+      householdID: 'householdId',
+      personalDoctorID: "drID",
+      name: "ANt",
+      email: "at@gmail.com"
+    }
+    const user6 : User = {
+      userID: '',
+      householdID: 'householdId',
+      personalDoctorID: "drID",
+      name: "Asea",
+      isHeadOfHouseHold: true,
+      email: "at@gmail.com"
+    }
+    const user7 : User = {
+      userID: '',
+      householdID: 'householdId',
+      personalDoctorID: "drID",
+      name: "An Tran",
+      isHeadOfHouseHold: true,
+      email: "at@gmail.com"
+    }
+    const user8 : User = {
+      userID: '',
+      householdID: 'householdId',
+      personalDoctorID: "drID",
+      name: "An Tran",
+      email: "at@gmail.com"
+    }
+    const user9 : User = {
+      userID: '',
+      householdID: 'householdId',
+      personalDoctorID: "drID",
+      name: "An Tran",
+      email: "at@gmail.com"
+    }
+
+    this.household$$.pushHousehold(household1);
+
+
 
 
 

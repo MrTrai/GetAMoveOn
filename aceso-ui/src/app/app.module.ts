@@ -17,6 +17,7 @@ import {FirebaseApiService} from "./service/firebase-api.service";
 import {AppServiceService} from "./service/app-service.service";
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseComponent } from './firebase/firebase.component';
+import {HouseholdService} from "./service/household.service";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FirebaseComponent } from './firebase/firebase.component';
     ClientServiceService,
     DoctorServiceService,
     FirebaseApiService,
+    HouseholdService,
     AppServiceService
   ],
   bootstrap: [AppComponent]

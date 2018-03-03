@@ -60,42 +60,22 @@ export class HouseholdService {
     });
   }
 
-  pushHousehold(household: HouseHold) {
-    this.db.list('household', (ref) => {
-      return ref
-        .orderByChild('headOfHousehold')
-        .equalTo(household.headOfHousehold);
-    }).snapshotChanges().subscribe((snaps: any[]) => {
-      let Val;
-      let Key;
-      snaps.forEach((snap, indx) => {
-        Val = snap.payload.val();
-        Key = snap.key;
-        if(Val.headOfHousehold = household.headOfHousehold ) {
-          return
-        }
-        return this.db.list('household').push(household);
-      })
+  pushHousehold(household: HouseHold, doctorID?: string) {
+// Insert User to firebase
+    this.db.list('household').push(household).then((data) => {
+      //set key
+      this.db.list('household', (ref) => {
+        return ref.orderByChild('headOfHousehold').equalTo(household.headOfHousehold);
+      }).snapshotChanges().subscribe((userSnapShots: any[]) => {
+        userSnapShots.forEach((household, indx) => {
+          if (!household.payload.val().userID) {
+            this.db.list('household').update(household.key, {householdID: household.key});
+          }
+        });
+      });
     });
   }
 
-  updateHousehold(household: HouseHold, newHousehold: HouseHold) {
-
-    this.db.list('household', (ref) => {
-      return ref
-        .orderByChild('headOfHouseHold')
-        .equalTo(household.headOfHousehold);
-    }).snapshotChanges().subscribe((snaps: any[]) => {
-      let Val;
-      let Key;
-      snaps.forEach((snap, indx) => {
-        Val = snap.payload.val();
-        Key = snap.key;
-          this.db.list('household').set(Val,newHousehold);
-
-      })
-    });
-  }
 
   removeHousehold(household: HouseHold) {
 

@@ -35,7 +35,6 @@ export class ClientServiceService {
       this.db.list('users', (ref) => {
         return ref.orderByChild('name').equalTo(user.name);
       }).snapshotChanges().subscribe((userSnapShots: any[]) => {
-        console.log(userSnapShots);
         userSnapShots.forEach((user, indx) => {
           if (!user.payload.val().userID) {
             this.db.list('users').update(user.key, {userID: user.key});
@@ -43,7 +42,18 @@ export class ClientServiceService {
         });
       });
     });
+  }
 
+  updateHouseholdList() {
+    this.db.list('users', (ref) =>{
+      return ref.orderByChild('householdID');
+    }).snapshotChanges().subscribe((userSnapShots: any[]) => {
+      userSnapShots.forEach((user, indx) => {
+        if (!user.payload.val().userID) {
+          this.db.list('users').update(user.key, {userID: user.key});
+        }
+      });
+    });
 
   }
 
