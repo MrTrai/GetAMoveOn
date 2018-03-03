@@ -33,6 +33,7 @@ import {UserDashboardComponent} from './user-dashboard/user-dashboard.component'
 import {DoctorDashboardComponent} from './doctor-dashboard/doctor-dashboard.component';
 import {HighChartUtilService} from "./service/high-chart-util.service";
 import {HighchartsStatic} from "angular2-highcharts/dist/HighchartsService";
+import {FirebaseComponent} from "./firebase/firebase.component";
 
 export function highchartsFactory() {
   const hc = require('highcharts');
@@ -57,7 +58,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     WelcomeComponent,
     ClientSideComponent,
     UserDashboardComponent,
-    DoctorDashboardComponent
+    DoctorDashboardComponent,
+    ChartCardComponent,
+    FirebaseComponent
   ],
   imports: [
     BrowserModule,

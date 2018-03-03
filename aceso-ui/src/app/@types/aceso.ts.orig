@@ -1,0 +1,41 @@
+export interface Doctor {
+  householdList: Household[],
+  name: string,
+  email: string,
+  profession: string,
+  gender: string
+}
+
+<<<<<<< HEAD
+export interface Household {
+  members: string[],
+  head: string,
+}
+
+=======
+export interface HouseHold {
+  membersList: string[],
+  headOfHousehold: string,
+  doctorID: string
+}
+
+export interface User {
+  userProfile: UserProfile,
+  doctorID: string,
+  name: string,
+  headOfHouseHold: boolean,
+  data: UserData,
+  healthStatus: string
+
+}
+
+export interface UserData {
+  heartRate: any[],
+  weight: any[],
+  temperature: any[]
+}
+
+export interface UserProfile{
+
+}
+>>>>>>> 5503f95d16cb7eba914bfa8b8f1662004bfd216f
