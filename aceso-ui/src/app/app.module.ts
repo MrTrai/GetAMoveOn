@@ -17,6 +17,7 @@ import {FirebaseApiService} from "./service/firebase-api.service";
 import {AppServiceService} from "./service/app-service.service";
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
   imports: [
     BrowserModule,
     NgMaterialModule,
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
