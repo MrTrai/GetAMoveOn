@@ -1,3 +1,52 @@
-<p>
-  login works!
-</p>
+<dir login="LoginForm">
+  <h1>Login Page</h1>
+</dir>
+
+<md-grid-list cols="3">
+  <md-grid-tile></md-grid-tile>
+
+  <md-grid-tile class='login-element'>
+    <div class='login-container'>
+      <div class='login-box-header'>
+        <img src="http://ehii.in/wp-content/uploads/2014/09/icon-working-with-health-care-providers.png">
+      </div>
+
+      <div class='login-box-body'>
+        <md-grid-list col="8" rowHeight="65px">
+          <md-grid-tile [rowspan]="1" class="login-icon">
+            <md-icon>Username</md-icon>
+          </md-grid-tile>
+
+          <md-grid-tile [colspan]="8">
+            <md-input-container class="justifier">
+              <input mdInput plaecholder="Username" text="text">
+            </md-input-container>
+          </md-grid-tile>
+        </md-grid-list>
+
+        <md-grid-list cols="8" rowHeight="100px">
+          <md-grid-tile [rowspan]="1" class="login-icon">
+            <md-icon>Password</md-icon>
+          </md-grid-tile>
+          <md-grid-tile [colspan]="7">
+            <md-input-container class="justifier">
+              <input mdInput placeholder="Password" text="password">
+            </md-input-container>
+          </md-grid-tile>
+        </md-grid-list>
+
+
+        <button md-raised-button class="login-button">
+          <md-icon>Login</md-icon>
+        </button>
+      </div>
+
+
+    </div>
+
+  </md-grid-tile>
+
+
+
+
+</md-grid-list>
