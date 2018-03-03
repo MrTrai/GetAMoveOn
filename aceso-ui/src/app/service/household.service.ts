@@ -74,7 +74,7 @@ export class HouseholdService {
         if(Val.headOfHousehold = household.headOfHousehold ) {
           return
         }
-        return this.db.list('household').push(household)x;
+        return this.db.list('household').push(household);
       })
     });
   }

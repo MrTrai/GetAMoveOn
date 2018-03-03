@@ -8,7 +8,7 @@ export class DoctorServiceService {
   constructor(private db: AngularFireDatabase) { }
 
   getHouseholdList(){
-    return this.db.list('houseHoldList').snapshotChanges();
+    return this.db.list('houseHoldIDList').snapshotChanges();
   }
 
   retrieveDoctor(doctor: Doctor) {

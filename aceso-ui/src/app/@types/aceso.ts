@@ -1,5 +1,5 @@
 export interface Doctor {
-  houseHoldList: string[],
+  houseHoldIDList: string[],
   doctorID?: string,
   name: string,
   email: string,
@@ -16,6 +16,7 @@ export interface HouseHold {
 
 export interface User {
   userID?: string,
+  personalDoctorID?: string,
   userProfile?: UserProfile,
   name: string,
   isHeadOfHouseHold?: boolean,

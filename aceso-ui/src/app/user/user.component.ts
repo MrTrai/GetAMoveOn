@@ -11,15 +11,6 @@ export class UserComponent implements OnInit {
   constructor(private client$$: ClientServiceService) { }
 
   ngOnInit() {
-    this.client$$.getName().subscribe((snapShots: any[]) => {
-      console.log('handsome: ');
-      console.log(snapShots);
-
-      snapShots.forEach((snap, indx) => {
-        console.log(snap.key);
-        console.log(snap.payload.val());
-      })
-    });
   }
 
 }

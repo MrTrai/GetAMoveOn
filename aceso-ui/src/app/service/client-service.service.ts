@@ -8,7 +8,7 @@ export class ClientServiceService {
   constructor(private db: AngularFireDatabase){}
 
   getUserProfile(user: User) {
-    this.db.list('user', (ref) => {
+    this.db.list('users', (ref) => {
       return ref
         .orderByChild('name')
         .equalTo(user.name);
@@ -25,20 +25,20 @@ export class ClientServiceService {
     });
   }
   getAllUser() {
-    return this.db.list('user').snapshotChanges();
+    return this.db.list('users').snapshotChanges();
   }
 
   pushUser(user: User) {
     // Insert User to firebase
-    this.db.list('user').push(user).then((data) => {
+    this.db.list('users').push(user).then((data) => {
       //set key
-      this.db.list('user', (ref) => {
+      this.db.list('users', (ref) => {
         return ref.orderByChild('name').equalTo(user.name);
       }).snapshotChanges().subscribe((userSnapShots: any[]) => {
         console.log(userSnapShots);
         userSnapShots.forEach((user, indx) => {
           if (!user.payload.val().userID) {
-            this.db.list('user').update(user.key, {userID: user.key});
+            this.db.list('users').update(user.key, {userID: user.key});
           }
         });
       });
@@ -48,7 +48,7 @@ export class ClientServiceService {
   }
 
   getUser(userID: string) {
-    this.db.list('user', (ref) => {
+    this.db.list('users', (ref) => {
       return ref
         .orderByChild('userID')
         .equalTo(userID);
@@ -56,7 +56,7 @@ export class ClientServiceService {
   }
 
   getData(user: User) {
-    this.db.list('user', (ref) => {
+    this.db.list('users', (ref) => {
       return ref
         .orderByChild('name')
         .equalTo(user.name);
@@ -74,7 +74,7 @@ export class ClientServiceService {
   }
 
   getHealthStatus(user: User) {
-    this.db.list('user', (ref) => {
+    this.db.list('users', (ref) => {
       return ref
         .orderByChild('name')
         .equalTo(user.name);
