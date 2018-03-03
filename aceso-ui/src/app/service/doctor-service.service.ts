@@ -13,17 +13,17 @@ export class DoctorServiceService {
 
   retrieveDoctor(doctor: Doctor) {
     // Retrieve Doctor from Firebase
-    this.db.list('doctor').snapshotChanges();
+    this.db.list('doctors').snapshotChanges();
   }
 
-  pushDoctor(doctor: Doctor) {
+  pushDoctor(doctors: Doctor) {
     // Insert Doctor to firebase
-    this.db.list('doctor').push(doctor);
+    this.db.list('doctors').push(doctors);
   }
 
   updateDoctor(doctor: Doctor, newDoctor: Doctor) {
     // Update Doctor in firebase
-    this.db.list('doctor', (ref) => {
+    this.db.list('doctors', (ref) => {
       return ref
         .orderByChild('name')
         .equalTo(doctor.name); // get all doctor name == doctor.name
@@ -35,7 +35,7 @@ export class DoctorServiceService {
         docKey = snap.key;
         if (docVal.email == doctor.email) {// only update matching email
           //update this doctor
-          this.db.list('doctor').set(docKey,newDoctor);
+          this.db.list('doctors').set(docKey,newDoctor);
         }
       })
     });
@@ -43,7 +43,7 @@ export class DoctorServiceService {
 
   removeDoctor(doctor: Doctor) {
     // remove Doctor in firebase
-    this.db.list('doctor', (ref) => {
+    this.db.list('doctors', (ref) => {
       return ref
         .orderByChild('name')
         .equalTo(doctor.name); // get all doctor name == doctor.name
@@ -55,7 +55,7 @@ export class DoctorServiceService {
         docKey = snap.key;
         if (docVal.email == doctor.email) {// only remove matching email
           //remove this doctor
-          this.db.list('doctor').remove(docKey);
+          this.db.list('doctors').remove(docKey);
         }
       })
     });

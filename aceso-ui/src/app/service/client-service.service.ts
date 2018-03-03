@@ -1,22 +1,97 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase} from "angularfire2/database";
-import {Doctor} from "../@types/aceso";
+import {Doctor, User} from "../@types/aceso";
 
 @Injectable()
 export class ClientServiceService {
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase){}
+
+  getUserProfile(user: User) {
+    this.db.list('user', (ref) => {
+      return ref
+        .orderByChild('name')
+        .equalTo(user.name);
+    }).snapshotChanges().subscribe((snaps: any[]) => {
+      let userVal;
+      let userKey;
+      snaps.forEach((snap, indx) => {
+        userVal = snap.payload.val();
+        userKey = snap.key;
+        if (userVal.email == user.email) {// only update matching email
+          return userVal.userProfile;
+        }
+      })
+    });
   }
-  getUser() {
-    return this.db.list('userProfile')
-  }
-  getMembersList() {
-    return this.db.list('membersList').snapshotChanges();
+  getAllUser() {
+    return this.db.list('user').snapshotChanges();
   }
 
-  getHeadOfHouseHold() {
-    return this.db.list('headOfHouseHold').snapshotChanges();
+  pushUser(user: User) {
+    // Insert User to firebase
+    this.db.list('user').push(user).then((data) => {
+      //set key
+      this.db.list('user', (ref) => {
+        return ref.orderByChild('name').equalTo(user.name);
+      }).snapshotChanges().subscribe((userSnapShots: any[]) => {
+        console.log(userSnapShots);
+        userSnapShots.forEach((user, indx) => {
+          if (!user.payload.val().userID) {
+            this.db.list('user').update(user.key, {userID: user.key});
+          }
+        });
+      });
+    });
+
+
   }
+
+  getUser(userID: string) {
+    this.db.list('user', (ref) => {
+      return ref
+        .orderByChild('userID')
+        .equalTo(userID);
+    }).snapshotChanges();
+  }
+
+  getData(user: User) {
+    this.db.list('user', (ref) => {
+      return ref
+        .orderByChild('name')
+        .equalTo(user.name);
+    }).snapshotChanges().subscribe((snaps: any[]) => {
+      let userVal;
+      let userKey;
+      snaps.forEach((snap, indx) => {
+        userVal = snap.payload.val();
+        userKey = snap.key;
+        if (userVal.email == user.email) {// only update matching email
+          return userVal.data;
+        }
+      })
+    });
+  }
+
+  getHealthStatus(user: User) {
+    this.db.list('user', (ref) => {
+      return ref
+        .orderByChild('name')
+        .equalTo(user.name);
+    }).snapshotChanges().subscribe((snaps: any[]) => {
+      let userVal;
+      let userKey;
+      snaps.forEach((snap, indx) => {
+        userVal = snap.payload.val();
+        userKey = snap.key;
+        if (userVal.email == user.email) {// only update matching email
+          return userVal.healthStatus;
+        }
+      })
+    });
+  }
+
+
 
   getDoctorID(doctor: Doctor) {
     this.db.list('doctor', (ref) => {
@@ -36,7 +111,3 @@ export class ClientServiceService {
     });
   }
 }
-
-
-
-
