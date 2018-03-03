@@ -27,6 +27,8 @@ import {NgSelectModule} from "@ng-select/ng-select";
 import {ChartModule} from "angular2-highcharts";
 import {PerfectScrollbarModule} from "ngx-perfect-scrollbar";
 import {NgProgressModule} from "ngx-progressbar";
+import {HttpClientModule} from "@angular/common/http";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import {NgProgressModule} from "ngx-progressbar";
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
+    CommonModule,
 
     NgbModule.forRoot(),
     NgSelectModule,
