@@ -1,2 +1,60 @@
-Test
-<button mat-button mat-raised-button color="primary">Test</button>
+<div>
+  <mat-drawer-container style="background: #ECEFF1;">
+    <mat-drawer #drawer [mode]="'side'" class="side-nav-container"
+                style="background: #263238">
+
+      <div style="width: 250px;">
+        <mat-accordion [multi]="true">
+
+          <mat-expansion-panel [expanded]="true" style="background-color: #ECEFF1">
+            <mat-expansion-panel-header style="background: #263238;" class="specific-class">
+              <mat-panel-title style="color: #CFD8DC;">
+                <b>
+                  Name
+                </b>
+              </mat-panel-title>
+
+            </mat-expansion-panel-header>
+
+            <mat-nav-list dense>
+              <b>
+                Content
+              </b>
+            </mat-nav-list>
+          </mat-expansion-panel>
+
+        </mat-accordion>
+      </div>
+    </mat-drawer>
+
+    <div class="ds-view-container">
+      <mat-toolbar style="box-shadow: 0 0 15px 0 grey; background-color: #FAFAFA">
+        <mat-toolbar-row style="top: 0">
+          <button mat-button (click)="drawer.toggle()">
+            <i class="fa fa-bars" style="font-size: 150%"></i>
+          </button>
+
+          <div class="row" style="padding: 20px;">
+            <h2 style="">
+              <strong style="color: #546E7A; font-size: 150%">
+                Ace<span style="color: #78909C;">so</span>
+              </strong>
+            </h2>
+          </div>
+
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <div style="height: 100%; width: 100%;" (mousemove)="onMouseMove($event)" (click)="drawer.close();">
+        <div style="padding: 40px;">
+
+          <div style="padding-top: 30px; width: 100%; height: 100vh;">
+            <router-outlet></router-outlet>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </mat-drawer-container>
+</div>
+
