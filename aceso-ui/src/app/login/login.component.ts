@@ -12,7 +12,7 @@ import { of } from 'rxjs/observable/of';
 
 
 @Component({
-    moduleId: module.id,
+    selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })

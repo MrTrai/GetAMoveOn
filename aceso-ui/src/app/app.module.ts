@@ -28,6 +28,7 @@ import {PerfectScrollbarModule} from "ngx-perfect-scrollbar";
 import {NgProgressModule} from "ngx-progressbar";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
+import { ChatButtonComponent } from './chat-button/chat-button.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {CommonModule} from "@angular/common";
     ChartCardComponent,
     DashboardLayoutComponent,
     WelcomeComponent,
-    ClientSideComponent
+    ClientSideComponent,
+    ChatButtonComponent
   ],
   imports: [
     BrowserModule,
