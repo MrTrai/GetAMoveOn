@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class ClientSideComponent implements OnInit {
   constructor() { }
   foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
+    {value: 'steak-0', viewValue: 'Weight Measure'},
+    {value: 'pizza-1', viewValue: 'Blood Pressure'},
+    {value: 'tacos-2', viewValue: 'Thermometer'};
   ];
 
   ngOnInit() {

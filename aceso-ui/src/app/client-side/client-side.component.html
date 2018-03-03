@@ -1,18 +1,17 @@
-<p>
-  client-side works!
-</p>
-<h3>Raised Buttons</h3>
 <div class="button-row">
-	<button mat-raised-button color="primarsy">Find a Doctor</button>
-	<button mat-raised-button color="primary">Measure Weight</button>
-	<button mat-raised-button color="primary">Heart </button>
-	<button mat-raised-button color="primary">Primary</button>
-	<button mat-raised-button color="primary">Primary</button>
-	<button mat-raised-button color="primary">Primary</button>
+	<div class="wrap">
+		<button mat-raised-button color="primary">Find a Doctor</button>
+		<button mat-raised-button color="primary">Measure Weight</button>
+		<button mat-raised-button color="primary">Heart </button>
+		<button mat-raised-button color="primary">Primary</button>
+		<button mat-raised-button color="primary">Primary</button>
+		<button mat-raised-button color="primary">Primary</button>
+	</div>
 </div>
-
-  <mat-select placeholder="Favorite food">
+<mat-form-field>
+  <mat-select placeholder="Measurement">
     <mat-option *ngFor="let food of foods" [value]="food.value">
       {{ food.viewValue }}
     </mat-option>
   </mat-select>
+</mat-form-field>

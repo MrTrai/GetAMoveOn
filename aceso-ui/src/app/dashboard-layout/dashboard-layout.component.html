@@ -1,2 +1,41 @@
-Test
-<button mat-button mat-raised-button color="primary">Test</button>
+<div>
+  <mat-drawer-container style="background: #ECEFF1;">
+    <mat-drawer #drawer [mode]="'side'" class="side-nav-container"
+                style="background: #263238">
+    </mat-drawer>
+
+    <div class="ds-view-container">
+      <mat-toolbar style="box-shadow: 0 0 15px 0 grey; background-color: #FAFAFA">
+        <mat-toolbar-row style="top: 0">
+          <button mat-button (click)="drawer.toggle()">
+            <i class="fa fa-bars" style="font-size: 150%"></i>
+          </button>
+
+          <div class="row" style="padding: 20px;">
+            <h2 style="">
+              <img src="assets/icon/atom-icon.png" height="50px" alt="">
+              <strong style="color: #546E7A; font-size: 150%">
+                Ace
+              </strong>
+              <strong style="color: #78909C; font-size: 115%">
+                so
+              </strong>
+            </h2>
+          </div>
+
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <div style="height: 100%; width: 100%;" (mousemove)="onMouseMove($event)" (click)="drawer.close(); sideNavMode = 'over'">
+        <div style="padding: 40px;">
+
+          <div style="padding-top: 30px; width: 100%;">
+            <router-outlet></router-outlet>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </mat-drawer-container>
+</div>
+
