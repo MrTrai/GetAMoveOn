@@ -2,6 +2,29 @@
   <mat-drawer-container style="background: #ECEFF1;">
     <mat-drawer #drawer [mode]="'side'" class="side-nav-container"
                 style="background: #263238">
+
+      <div style="width: 250px;">
+        <mat-accordion [multi]="true">
+
+          <mat-expansion-panel [expanded]="true" style="background-color: #ECEFF1">
+            <mat-expansion-panel-header style="background: #263238;" class="specific-class">
+              <mat-panel-title style="color: #CFD8DC;">
+                <b>
+                  Name
+                </b>
+              </mat-panel-title>
+
+            </mat-expansion-panel-header>
+
+            <mat-nav-list dense>
+              <b>
+                Content
+              </b>
+            </mat-nav-list>
+          </mat-expansion-panel>
+
+        </mat-accordion>
+      </div>
     </mat-drawer>
 
     <div class="ds-view-container">
